@@ -53,10 +53,10 @@ def IESMO(nomer_peserta: str, request: Request, nama_benar: str = 'benar', file:
                     return Response(content=data, media_type="application/pdf")
             else:
                 if res[0]['ROLE'] == 'peserta':
-                    data = generate_iesmopeserta(res[0]['NAMA'].upper(), res[0]['JURUSAN'].upper())
+                    data = generate_iesmopeserta(nama_benar.upper(), res[0]['JURUSAN'].upper())
                     return Response(content=data, media_type="application/pdf")
                 elif res[0]['ROLE'] == 'semifinalis':
-                    data = generate_iesmosemi(res[0]['NAMA'].upper(), res[0]['JURUSAN'].upper())
+                    data = generate_iesmosemi(nama_benar.upper(), res[0]['JURUSAN'].upper())
                     return Response(content=data, media_type="application/pdf")
 
 
